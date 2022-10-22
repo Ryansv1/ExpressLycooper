@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include ('../partials/head.ejs'); %> 
+    <link href="./css/style-login.css" rel="stylesheet">
+    <title>Login</title>
+</head>
+<body class="vw-100 vh-100 d-flex flex-column justify-content-center">
+    <h1 class=" border container text-center"><%= title %></h1>
+    <div class="border container h-75 d-sm-inline-flex justify-content-center align-items-center overflow-auto">
+        <div id="card" class="border container-sm h-75 my-3 d-flex flex-column align-items-center justify-content-center text-center">
+                <h1>Ainda não tem uma conta?</h1>
+                <h3>Faça seu registro clicando no botão abaixo!</h3>
+                <a href="/signin"><button type="submit" class="btn">Cadastre-se!</button></a>
+        </div>
+        <div id="card" class="border container-sm h-75 my-3 d-flex flex-column align-items-center justify-content-center text-center">
+                <h1 class="mb-2">Faça seu Login abaixo!</h1>
+                <form action="/auth/authenticate" method="POST" class="container-sm">
+                    <div class="form-floating mb-3">
+                        <input type="email" class="form-control bg-dark text-light" id="floatingInput" placeholder="name@example.com" name="email">
+                        <label for="floatingInput" class="text-light">E-mail</label>
+                      </div>
+                      <div class="form-floating">
+                        <input type="password" class="form-control bg-dark text-light" id="floatingPassword" placeholder="Password" name="password">
+                        <label for="floatingPassword" class="text-light">Senha</label>
+                      </div>
+                    <button class="btn mt-3" type="reset">Limpar dados</button>
+                    <button class="btn mt-3" type="submit" name="submit">Login</button>
+                </form>
+        </div>
+    </div>
+</body>
+</html>

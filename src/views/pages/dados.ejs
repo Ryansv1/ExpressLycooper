@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <%- include('../partials/head.ejs'); %>
+    <link href="css/style-consulta.css" rel="stylesheet">
+    <link href="css/hover.css" rel="stylesheet" media="all">
+    <link href="css/reset.css" rel="stylesheet" media="all">
+    <link href="css/navbar.css"rel="stylesheet" media="all">
+    <link href="css/footer.css" rel="stylesheet" medial="all">
+    <title>Lycooper</title>
+</head>
+<body>
+    <header>
+        <%- include('../partials/header.ejs')  %>
+    </header>
+    <main class="container-fluid vh-100 d-flex flex-row justify-content-center align-items-center py-4">
+        <div class="container-sm w-50 h-50 d-flex justify-content-center">
+            <form class="d-flex flex-column justify-content-center align-items-center w-50 h-100" method="post" action="api/getall">
+                <select class="form-select" aria-label="Default select example" class="m-2 p-2"name="sensor">
+                    <option selected>Selecione o sensor</option>
+                    <option value="1">Temperatura do Tanque</option>
+                    <option value="2">Umidade do Solo</option>
+                    <option value="3" >pH</option>
+                    <option value="4">Temperatura da água</option>
+                </select>
+                <input type="date" class="date p-2 m-2" name="dataColeta">
+                <button type="submit" class="btn my-2">Pesquisa</button>
+            </form>
+            <div class="bg-dark">
+                <div id="result-query" class="container-sm"> 
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <%- include('../partials/footer.ejs')  %> 
+    </footer>
+</body>
+</html>

@@ -1,0 +1,56 @@
+
+
+/* Estilização Div main */
+
+#main-container{
+    width: 100vw;
+    height: 60vh;
+}
+#main-container h1, #main-container h3{
+    font-weight: 800;
+}
+
+#main-container {
+    background: #4CB8C4;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #3CD3AD, #4CB8C4);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #3CD3AD, #4CB8C4);
+}
+
+#container-about-2{
+    background-color: #003328;
+}
+
+#container-about-2 div {
+    background-color: #003328;
+}
+
+#container-about {
+    background-color: rgb(218, 227, 255);
+}
+
+#container-about div {
+    background-color: rgb(218, 227, 255);
+}
+
+@media (max-width: 818px){
+    #container-about {
+        flex-wrap: wrap;
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+        text-align: justify;
+    }
+    #container-about-2{
+        flex-wrap: wrap;
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+        text-align: justify;
+    }
+}
+
+h1, h3, p{
+    text-shadow: 1px 1px rgb(90, 90, 90);
+}
+
+
+
+

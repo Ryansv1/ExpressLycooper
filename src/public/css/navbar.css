@@ -1,0 +1,20 @@
+nav.navbar{
+    background-color: #0a211c;  /* fallback for old browsers */
+    font-weight: 800;
+}
+
+div.offcanvas-header{
+    background-color: #0a211c;
+}
+
+nav li.nav-item {
+    margin-bottom: 8px;
+}
+
+nav li.nav-item a.active {
+    background-color: rgb(69, 69, 69);
+} /* não ta funcionandO PQ EU N SEI JAVASCRIPT */
+
+.offcanvas-body{
+    background-color: #0a211c;
+}

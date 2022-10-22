@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head.ejs'); %>
+    <link href="./css/style-sensores.css" rel="stylesheet">
+    <link href="css/hover.css" rel="stylesheet" media="all">
+    <link href="css/reset.css" rel="stylesheet" media="all">
+    <link href="css/navbar.css"rel="stylesheet" media="all">
+    <link href="css/footer.css" rel="stylesheet" medial="all">
+    <title><%= title %> </title>
+</head>
+<body>
+    <header>
+        <%- include('../partials/header.ejs')%>
+    </header>
+    <main class="container-fluid vh-100 d-flex flex-column justify-content-center align-items-center py-4">
+        <div class="container-sm text-center">
+            <h1 class="text-light">Medição dos sensores em <br>tempo real (2h-2h):</h1>
+        </div>
+        <div id="carouselExampleIndicators" class="carousel bg-dark border border-1 rounded-3 slide mt-5 w-50 h-50 d-flex flex-column justify-content-center px-4" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <table class="table table-xl text-light table-hover text-center">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Referência base</th>
+                            <th>Valor medido</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>                 
+                        <tr>
+                            <td>PH</td>
+                            <td>=5</td>
+                            <td><%= sensores.sensor1.dados.valor%> </td>
+                            <th><%= sensores.sensor1.dados.status%></th>
+                        </tr>                          
+                    </tbody>
+                </table>
+              </div>
+
+              <div class="carousel-item">
+                <table class="table table-xl text-light table-hover text-center">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Referência base</th>
+                            <th>Valor medido</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>TA</td>
+                            <td>=5</td>
+                            <td><%= sensores.sensor2.dados.valor%> </td>
+                            <th><%= sensores.sensor2.dados.status%></th>
+                        </tr> 
+                    </tbody>
+                </table>
+              </div>
+
+              <div class="carousel-item">
+                <table class="table table-xl text-light table-hover text-center">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Referência base</th>
+                            <th>Valor medido</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>AA</td>
+                            <td>=5</td>
+                            <td><%= sensores.sensor3.dados.valor%> </td>
+                            <th><%= sensores.sensor3.dados.status%></th>
+                        </tr> 
+                    </tbody>
+                </table>
+              </div>
+
+              <div class="carousel-item">
+                <table class="table table-xl text-light table-hover text-center">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Referência base</th>
+                            <th>Valor medido</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>BB</td>
+                            <td>=5</td>
+                            <td><%= sensores.sensor4.dados.valor%> </td>
+                            <th><%= sensores.sensor4.dados.status%></th>
+                        </tr> 
+                    </tbody>
+                </table>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </main>
+    <footer>
+        <%- include('../partials/footer.ejs')%> 
+    </footer>
+</body>
+</html>
