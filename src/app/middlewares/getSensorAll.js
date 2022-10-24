@@ -8,6 +8,6 @@ module.exports = async (req, res, next) =>{
         next();
     } catch (err) {
         console.log(err)
-        res.json(err)
+        res.redirect('/consulta?err=1')
     }
 }

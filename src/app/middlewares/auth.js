@@ -5,7 +5,6 @@ module.exports = (req, res, next) =>{
     const authorization = req.cookies.authorization;
 
     if(!authorization){
-        console.log('nao tem token');
         req.authError = { error: 'no token provided' }
         next()
     }
@@ -13,7 +12,6 @@ module.exports = (req, res, next) =>{
     const parts = authorization ? authorization.split(' ') : '';
 
     if(!parts.length === 2){
-        console.log('token == 2');
         req.authError = { error: 'token error'}
         next()
     }
@@ -23,7 +21,6 @@ module.exports = (req, res, next) =>{
     
     if(!/^Bearer$/i.test(scheme)){
         req.authError = { error: 'token malformatted' }
-        console.log('token nao passou no test');
         next()
     }
         

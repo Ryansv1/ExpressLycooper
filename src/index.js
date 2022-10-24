@@ -20,6 +20,7 @@ const checkErrorMiddleware = require('./app/middlewares/checkError');
 const sensorData = require('./app/middlewares/getSensorData')
 const getSensorData = require('./api/controllers/getSensorData');
 const getSensorAll = require('./app/middlewares/getSensorAll');
+const nomeSensor = require('./app/middlewares/nomeSensor');
 
 // Rotas
 
@@ -38,8 +39,8 @@ app.get('/signin', (req, res)=> {
 app.get('/login', (req, res)=> {
     res.render('pages/login', { title:'Login - Lycooper' });
 });
-app.get('/getAllSensorData', getSensorAll, (req, res)=>{
-    res.render('pages/resultado-consulta', { title: 'Lycooper - Resultado', resultado: req.resultados, sensor: req.query.sensor})
+app.get('/getAllSensorData', getSensorAll, nomeSensor,  (req, res)=>{
+    res.render('pages/resultado-consulta', { title: 'Lycooper - Resultado', nomeDoSensor: req.nomeSensor, data: req.query.dataColeta, resultados: req.resultados})
 })
 
 

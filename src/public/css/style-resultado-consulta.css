@@ -6,3 +6,8 @@ main{
       rgba(62, 143, 152, 1) 100%
     );
 }
+
+.container-sm{
+  background-color: #003328 !important;
+  border-radius: 20px;
+}

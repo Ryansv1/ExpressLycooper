@@ -28,7 +28,7 @@
 }
 
 #container-about {
-    background-color: rgb(218, 227, 255);
+    background-color: #dae3ff;
 }
 
 #container-about div {
@@ -54,5 +54,7 @@ h1, h3, p{
     text-shadow: 1px;
 }
 
-
+#container-about-2 img, #container-about img{
+    border-radius: 10px;
+}
 

@@ -15,9 +15,9 @@
     </header>
     <main class="container-fluid vh-100 d-flex flex-column justify-content-center align-items-center py-4">
         <div class="container-sm text-center">
-            <h1 class="text-light">Medição dos sensores em <br>tempo real (2h-2h):</h1>
+            <h1 class="text-light">Ultima medição dos sensores<br>(2h-2h):</h1>
         </div>
-        <div id="carouselExampleIndicators" class="carousel bg-dark border border-1 rounded-3 slide mt-5 w-50 h-50 d-flex flex-column justify-content-center px-4" data-bs-ride="carousel">
+        <div id="carouselExampleIndicators" class="carousel bg-dark border border-1 rounded-3 slide mt-5 w-75 h-50 d-flex flex-column justify-content-center px-4" data-bs-ride="carousel">
             <div class="carousel-indicators">
               <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
               <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -26,84 +26,76 @@
             </div>
             <div class="carousel-inner">
               <div class="carousel-item active">
-                <table class="table table-xl text-light table-hover text-center">
+                <table class="table table-xl text-light  text-center">
                     <thead>
                         <tr>
                             <th>Nome</th>
                             <th>Referência base</th>
                             <th>Valor medido</th>
-                            <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>                 
                         <tr>
-                            <td>PH</td>
-                            <td>=5</td>
+                            <td>Temperatura do Tanque</td>
+                            <td>= Temperatura ideal</td>
                             <td><%= sensores.sensor1.dados.valor%> </td>
-                            <th><%= sensores.sensor1.dados.status%></th>
                         </tr>                          
                     </tbody>
                 </table>
               </div>
 
               <div class="carousel-item">
-                <table class="table table-xl text-light table-hover text-center">
+                <table class="table table-xl text-light  text-center">
                     <thead>
                         <tr>
                             <th>Nome</th>
                             <th>Referência base</th>
                             <th>Valor medido</th>
-                            <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>TA</td>
-                            <td>=5</td>
+                            <td>Umidade do Solo</td>
+                            <td>= Umidade Ideal</td>
                             <td><%= sensores.sensor2.dados.valor%> </td>
-                            <th><%= sensores.sensor2.dados.status%></th>
                         </tr> 
                     </tbody>
                 </table>
               </div>
 
               <div class="carousel-item">
-                <table class="table table-xl text-light table-hover text-center">
+                <table class="table table-xl text-light  text-center">
                     <thead>
                         <tr>
                             <th>Nome</th>
                             <th>Referência base</th>
                             <th>Valor medido</th>
-                            <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>AA</td>
-                            <td>=5</td>
+                            <td>pH</td>
+                            <td>= pH Ideal</td>
                             <td><%= sensores.sensor3.dados.valor%> </td>
-                            <th><%= sensores.sensor3.dados.status%></th>
                         </tr> 
                     </tbody>
                 </table>
               </div>
 
               <div class="carousel-item">
-                <table class="table table-xl text-light table-hover text-center">
+                <table class="table table-xl text-light  text-center">
                     <thead>
                         <tr>
                             <th>Nome</th>
                             <th>Referência base</th>
                             <th>Valor medido</th>
-                            <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>BB</td>
-                            <td>=5</td>
-                            <td><%= sensores.sensor4.dados.valor%> </td>
-                            <th><%= sensores.sensor4.dados.status%></th>
+                            <td>Temperatura da água</td>
+                            <td>= Temperatura Ideal</td>
+                            <td><%= sensores.sensor4.dados.valor%></td>
                         </tr> 
                     </tbody>
                 </table>
