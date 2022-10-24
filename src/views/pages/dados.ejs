@@ -16,7 +16,7 @@
     </header>
     <main class="container-fluid vh-100 d-flex flex-row justify-content-center align-items-center py-4">
         <div class="container-sm w-50 h-50 d-flex justify-content-center">
-            <form class="d-flex flex-column justify-content-center align-items-center w-50 h-100" method="post" action="api/getall">
+            <form class="d-flex flex-column justify-content-center align-items-center w-50 h-100" method="get" action="getAllSensorData ">
                 <select class="form-select" aria-label="Default select example" class="m-2 p-2"name="sensor">
                     <option selected>Selecione o sensor</option>
                     <option value="1">Temperatura do Tanque</option>
@@ -27,10 +27,6 @@
                 <input type="date" class="date p-2 m-2" name="dataColeta">
                 <button type="submit" class="btn my-2">Pesquisa</button>
             </form>
-            <div class="bg-dark">
-                <div id="result-query" class="container-sm"> 
-                </div>
-            </div>
         </div>
     </main>
     <footer>

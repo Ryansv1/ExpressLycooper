@@ -11,10 +11,10 @@ nav li.nav-item {
     margin-bottom: 8px;
 }
 
-nav li.nav-item a.active {
-    background-color: rgb(69, 69, 69);
-} /* não ta funcionandO PQ EU N SEI JAVASCRIPT */
 
 .offcanvas-body{
-    background-color: #0a211c;
+    background-color: #003328;
+}
+nav li.nav-item {
+    background: #003328;
 }

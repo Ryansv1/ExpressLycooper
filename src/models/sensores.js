@@ -14,23 +14,15 @@ const sensoresSchema = new mongoose.Schema({
         },
     },
     createdAt:{
-        type: Date,
+        type: String,
         default: Date.now
     }
 });
 
 
 sensoresSchema.pre('save', async function(next){
-    const date = this; // DEU CERTOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
-    console.log(date.createdAt)
-
-    // preciso pegar a data antes dela ser inserida, usando o pre 'save', e assim
-    // usar a função split("T") pra separar o valor da data em apenas 2022-10-21
-    // para assim conseguir consultar pelo front
-    // 
-    // porém encontrei um problema ao tentar esse fluxo. A função split não funciona fora de arrays ou strings
-    // e como a "date" é um objeto, ela não funciona sobre ele.
-    // tenho que achar uma maneira de acessar o valor desse objeto, e assim conseguir usar a função split.
+    const novaData = new Date().toISOString()
+    this.createdAt = String(novaData).split('T')[0];
 })
 
 const Sensores = mongoose.model('Sensores', sensoresSchema);

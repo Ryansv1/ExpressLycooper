@@ -11,9 +11,12 @@
 }
 
 #main-container {
-    background: #4CB8C4;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to left, #3CD3AD, #4CB8C4);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to left, #3CD3AD, #4CB8C4);
+    background: rgb(60, 211, 173);
+    background: linear-gradient(
+      90deg,
+      rgba(60, 211, 173, 1) 0%,
+      rgba(62, 143, 152, 1) 100%
+    );
 }
 
 #container-about-2{
@@ -32,7 +35,7 @@
     background-color: rgb(218, 227, 255);
 }
 
-@media (max-width: 818px){
+@media (max-width: 1200px){
     #container-about {
         flex-wrap: wrap;
         padding-left: 0px !important;
@@ -48,9 +51,8 @@
 }
 
 h1, h3, p{
-    text-shadow: 1px 1px rgb(90, 90, 90);
+    text-shadow: 1px;
 }
-
 
 
 

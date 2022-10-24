@@ -1807,7 +1807,7 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background: #2098D1;
+  background: #003328; /*  */ 
   -webkit-transform: scaleX(0);
   transform: scaleX(0);
   -webkit-transform-origin: 50%;
@@ -2157,8 +2157,8 @@
   left: 0;
   right: 100%;
   bottom: 0;
-  background: #2098D1;
-  height: 4px;
+  background: #e5e5e5;
+  height: 2px;
   -webkit-transition-property: right;
   transition-property: right;
   -webkit-transition-duration: 0.3s;
