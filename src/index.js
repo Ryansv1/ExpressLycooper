@@ -42,5 +42,5 @@ app.get('/getAllSensorData', getSensorAll, nomeSensor,  (req, res)=>{
 })
 
 
-app.listen(1818);
+app.listen(9090);
 console.log('app running on 1818');

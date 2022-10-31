@@ -21,7 +21,7 @@ module.exports = (req, res, next) =>{
         break
         
         default: 
-            req.nomeSensor = "ricardo desconhecido"
+            req.nomeSensor = "sensor desconhecido"
         next()
         break
     }
