@@ -20,14 +20,14 @@
             <div class="err mt-5 text-danger" style="display: none;" >Erro: Não foram encontrados registros nessa data</div>
             <h3 class="mt-5 text-light text-center">Realize uma consulta específica <br>por data abaixo!</h3>
             <form class="d-flex flex-column justify-content-center align-items-center w-50 h-50" method="get" action="getAllSensorData ">
-                <select class="form-select" aria-label="Default select example" class="m-2 p-2"name="sensor">
+                <select class="form-select success" aria-label="Default select example" class="m-2 p-2"name="sensor">
                     <option selected>Selecione o sensor</option>
                     <option value="2">Umidade do Solo</option>
                     <option value="3" >pH</option>
                     <option value="4">Temperatura da água</option>
                 </select>
                 <input type="date" class="date p-2 m-2" name="dataColeta">
-                <button type="submit" class="btn my-2">Pesquisa</button>
+                <button type="submit" class="btn btn-outline-dark my-2">Pesquisa</button>
             </form>
         </div>
     </main>

@@ -1,19 +1,16 @@
 main {
-    background: rgb(60, 211, 173);
-    background: linear-gradient(
-      90deg,
-      rgba(60, 211, 173, 1) 0%,
-      rgba(62, 143, 152, 1) 100%
-    );
+    background: rgb(79,224,138);
+    background: linear-gradient(to left, rgba(79,224,138,1) 0%, rgba(39,37,148,1) 100%);
 }
 
 div.container-sm {
-    background-color: #003328 !important;
+    background-color: #32A868 !important;
     border-radius: 20px;
 }
 
 .btn{
-    background-color: #9cf3e0 !important;
+    background-color: #3BC479 !important;
+    
 }
 
 input.date{

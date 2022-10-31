@@ -1,10 +1,10 @@
 nav.navbar{
-    background-color: #0a211c;  /* fallback for old browsers */
+    background-color: #141345;  /* fallback for old browsers */
     font-weight: 800;
 }
 
 div.offcanvas-header{
-    background-color: #0a211c;
+    background-color: #141345;
 }
 
 nav li.nav-item {
@@ -13,10 +13,10 @@ nav li.nav-item {
 
 
 .offcanvas-body{
-    background-color: #003328;
+    background-color: #141345;
 }
 nav li.nav-item {
-    background: #003328;
+    background-color: #272594;
 }
 
 .navbar-brand img{

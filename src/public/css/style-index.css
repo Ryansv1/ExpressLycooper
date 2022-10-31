@@ -12,28 +12,24 @@
 }
 
 #main-container {
-    background: rgb(60, 211, 173);
-    background: linear-gradient(
-      90deg,
-      rgba(60, 211, 173, 1) 0%,
-      rgba(62, 143, 152, 1) 100%
-    );
-}
-
-#container-about-2{
-    background-color: #003328;
+    background: rgb(33, 31, 128);
+    backdrop-filter: blur(3px);
 }
 
 #container-about-2 div {
-    background-color: #003328;
+    background-color: #4FE08A;
 }
 
 #container-about {
-    background-color: #dae3ff;
+    background-color: #4FE08A;
 }
 
 #container-about div {
-    background-color: rgb(218, 227, 255);
+    background-color: #4FE08A;
+}
+
+#container-about-2 {
+    background-color: #4FE08A;
 }
 
 @media (max-width: 1200px){
