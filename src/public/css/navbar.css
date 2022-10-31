@@ -18,3 +18,8 @@ nav li.nav-item {
 nav li.nav-item {
     background: #003328;
 }
+
+.navbar-brand img{
+     width: 200px;
+     height: auto;
+}

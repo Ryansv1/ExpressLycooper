@@ -9,7 +9,7 @@
     <link href="css/navbar.css"rel="stylesheet" media="all">
     <link href="css/footer.css" rel="stylesheet" medial="all">
     
-    <title>Lycooper</title>
+    <title><%= title %></title>
 </head>
 <body>
     <header>
@@ -18,7 +18,8 @@
     <main class="container-fluid vh-100 d-flex flex-row justify-content-center align-items-center py-4">
         <div class="container-sm w-50 h-50 d-flex flex-column justify-content-center align-items-center">
             <div class="err mt-5 text-danger" style="display: none;" >Erro: Não foram encontrados registros nessa data</div>
-            <form class="d-flex flex-column justify-content-center align-items-center w-50 h-100" method="get" action="getAllSensorData ">
+            <h3 class="mt-5 text-light text-center">Realize uma consulta específica <br>por data abaixo!</h3>
+            <form class="d-flex flex-column justify-content-center align-items-center w-50 h-50" method="get" action="getAllSensorData ">
                 <select class="form-select" aria-label="Default select example" class="m-2 p-2"name="sensor">
                     <option selected>Selecione o sensor</option>
                     <option value="1">Temperatura do Tanque</option>

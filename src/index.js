@@ -13,12 +13,10 @@ app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 require('./app/controllers/index')(app);
-require('./api/controllers/getSensorData')(app);
 require('./api/controllers/setSensorData')(app);
 const authMiddleware = require('./app/middlewares/auth')
 const checkErrorMiddleware = require('./app/middlewares/checkError');
 const sensorData = require('./app/middlewares/getSensorData')
-const getSensorData = require('./api/controllers/getSensorData');
 const getSensorAll = require('./app/middlewares/getSensorAll');
 const nomeSensor = require('./app/middlewares/nomeSensor');
 
@@ -40,7 +38,7 @@ app.get('/login', (req, res)=> {
     res.render('pages/login', { title:'Login - Lycooper' });
 });
 app.get('/getAllSensorData', getSensorAll, nomeSensor,  (req, res)=>{
-    res.render('pages/resultado-consulta', { title: 'Lycooper - Resultado', nomeDoSensor: req.nomeSensor, data: req.query.dataColeta, resultados: req.resultados})
+    res.render('pages/resultado-consulta', { title: 'Resultado - Lycooper', nomeDoSensor: req.nomeSensor, data: req.query.dataColeta, resultados: req.resultados})
 })
 
 

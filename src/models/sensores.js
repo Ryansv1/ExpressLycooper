@@ -16,6 +16,10 @@ const sensoresSchema = new mongoose.Schema({
     createdAt:{
         type: String,
         default: Date.now
+    },
+    horario:{
+        type: String,
+        default: Date.now
     }
 });
 
@@ -23,6 +27,7 @@ const sensoresSchema = new mongoose.Schema({
 sensoresSchema.pre('save', async function(next){
     const novaData = new Date().toISOString()
     this.createdAt = String(novaData).split('T')[0];
+    this.horario = String(novaData).split('T')[1];
 })
 
 const Sensores = mongoose.model('Sensores', sensoresSchema);

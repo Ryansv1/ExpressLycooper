@@ -8,6 +8,7 @@
 }
 #main-container h1, #main-container h3{
     font-weight: 800;
+    text-shadow: black 5px 5px 15px;
 }
 
 #main-container {
@@ -56,5 +57,7 @@ h1, h3, p{
 
 #container-about-2 img, #container-about img{
     border-radius: 10px;
+    box-shadow: rgb(34, 34, 34) 5px 5px 20px;
 }
+
 
