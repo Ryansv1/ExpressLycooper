@@ -18,10 +18,7 @@ router.post('/register', async (req,res) => {
 
         User.password = undefined;
 
-        return res.send({ 
-            user, 
-            token: generateToken({ id: user.id }) 
-         });
+        res.redirect('/')
 
     } catch (err){
         return res.status(400).send({ error: 'Registration Failed '});
