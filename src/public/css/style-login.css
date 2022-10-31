@@ -37,3 +37,7 @@ body {
   text-align: center;
   color: white;
 }
+
+h1, h3 {
+  font-weight: 800;
+}
