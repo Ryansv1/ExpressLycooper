@@ -23,3 +23,7 @@ nav li.nav-item {
      width: 200px;
      height: auto;
 }
+
+.nav-item a{
+    font-size: 1.4rem;
+}

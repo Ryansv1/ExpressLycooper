@@ -41,6 +41,12 @@ app.get('/getAllSensorData', getSensorAll, nomeSensor,  (req, res)=>{
     res.render('pages/resultado-consulta', { title: 'Resultado - Lycooper', nomeDoSensor: req.nomeSensor, data: req.query.dataColeta, resultados: req.resultados})
 })
 
+// super secreto
+
+app.get('/ricardo', authMiddleware, checkErrorMiddleware, (req,res) =>{
+    res.render('pages/ricardo', { title:'página secreta'})
+})
+
 
 app.listen(9090);
 console.log('app running on 1818');

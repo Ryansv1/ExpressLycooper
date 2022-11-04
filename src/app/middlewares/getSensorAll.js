@@ -5,9 +5,9 @@ module.exports = async (req, res, next) =>{
     try {
         if(!sensor || !dataColeta) return res.redirect('/consulta?err=1')
         req.resultados = await Sensores.find({id:sensor, createdAt: dataColeta});  
-        next();
+        return next();
     } catch (err) {
         console.log(err)
-        res.redirect('/consulta?err=1')
+        return res.redirect('/consulta?err=1')
     }
 }

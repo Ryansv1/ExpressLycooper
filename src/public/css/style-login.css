@@ -1,25 +1,11 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap");
-
-* {
-  margin: 0px;
-  padding: 0px;
-  box-sizing: border-box;
-  font-family: "Montserrat";
-  font-style: bold;
-  overflow-y: hidden;
-}
 
 body {
   background-color: #202020;
 }
 
 .container-fluid {
-  background: rgb(60, 211, 173);
-  background: linear-gradient(
-    90deg,
-    rgba(60, 211, 173, 1) 0%,
-    rgba(62, 143, 152, 1) 100%
-  );
+  background: rgb(71, 204, 124);
+  background: linear-gradient(to left, rgb(71, 204, 124) 0%, rgba(39,37,148,1) 100%); 
   box-shadow: 20px 10px 10px;
 }
 
@@ -41,3 +27,23 @@ body {
 h1, h3 {
   font-weight: 800;
 }
+
+#card h1, #card h3{
+  color: white !important;
+  font-weight: bolder;
+}
+
+#card-2 h1, #card-2 h3{
+  color: white !important;
+  font-weight: bolder;
+}
+form input::placeholder {
+  font-weight: 800;
+}
+
+.btn {
+  background-color: #202020 !important;
+  color: white !important;
+  font-weight: 800;
+}
+

@@ -18,7 +18,7 @@ router.post('/register', async (req,res) => {
 
         User.password = undefined;
 
-        res.redirect('/')
+        return res.redirect('/')
 
     } catch (err){
         return res.status(400).send({ error: 'Registration Failed '});
@@ -47,7 +47,7 @@ router.post('/authenticate', async (req,res) =>{
         const token = generateToken({ id: user.id })
         res.cookie('authorization', `Bearer ${token}`).cookie('userId', user.id)
         
-        res.redirect('/')
+        return res.redirect('/')
 });
 
 module.exports = app => app.use ('/auth', router);

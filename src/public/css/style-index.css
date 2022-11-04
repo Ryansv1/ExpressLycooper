@@ -6,30 +6,35 @@
     width: 100vw;
     height: 60vh;
 }
-#main-container h1, #main-container h3{
+#main-container h1{
     font-weight: 800;
-    text-shadow: black 5px 5px 15px;
+    font-size: 4.0rem;
+}
+
+#main-container h3{
+    font-weight: 600;
+    font-size: 1.75rem;
 }
 
 #main-container {
-    background: rgb(33, 31, 128);
+    background: rgb(71, 204, 124);
     backdrop-filter: blur(3px);
 }
 
 #container-about-2 div {
-    background-color: #4FE08A;
+    background-color: rgb(33, 31, 128);
 }
 
 #container-about {
-    background-color: #4FE08A;
+    background-color: rgb(33, 31, 128);
 }
 
 #container-about div {
-    background-color: #4FE08A;
+    background-color: rgb(33, 31, 128);
 }
 
 #container-about-2 {
-    background-color: #4FE08A;
+    background-color: rgb(33, 31, 128);
 }
 
 @media (max-width: 1200px){
@@ -44,6 +49,22 @@
         padding-left: 0px !important;
         padding-right: 0px !important;
         text-align: justify;
+    }
+
+    #container-about-2 img{
+        width: 50%;
+        height: 100%;
+    }
+}
+
+@media (max-width: 800px){
+    #main-container h1{
+        font-weight: 800;
+        font-size: 3.0rem;
+    }
+    #main-container h3{
+        font-weight: 600;
+        font-size: 1.1rem;
     }
 }
 

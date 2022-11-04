@@ -3,35 +3,35 @@ module.exports = (req, res, next) => {
         const { error } = req.authError
         switch(error){
             case 'no token provided':
-                res.redirect('/login')
+                return res.redirect('/login')
                 console.log(error)
             break
             
             case 'token malformatted':
-                res.redirect('/login')
+                return res.redirect('/login')
                 console.log(error)
             break
             
             case 'token error':
-                res.redirect('/login')
+                return res.redirect('/login')
                 console.log(error)
             break
             
             case 'token invalid':
-                res.redirect('/login')
+                return res.redirect('/login')
                 console.log(error);
             break
 
             default:
                 console.log(error);
-                res.json({error})
+                return res.json({error})
             break
         }
     } else {
         if(req.isValidToken){
-            next()
+            return next()
         } else {
-            res.redirect('/login')
+            return res.redirect('/login')
         }
     }
 

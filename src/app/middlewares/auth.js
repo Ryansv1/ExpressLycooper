@@ -6,14 +6,14 @@ module.exports = (req, res, next) =>{
 
     if(!authorization){
         req.authError = { error: 'no token provided' }
-        next()
+        return next()
     }
 
     const parts = authorization ? authorization.split(' ') : '';
 
     if(!parts.length === 2){
         req.authError = { error: 'token error'}
-        next()
+        return next()
     }
 
 
@@ -21,7 +21,7 @@ module.exports = (req, res, next) =>{
     
     if(!/^Bearer$/i.test(scheme)){
         req.authError = { error: 'token malformatted' }
-        next()
+        return next()
     }
         
   jwt.verify(token, authConfig.secret, (err, decoded) =>{
@@ -29,13 +29,13 @@ module.exports = (req, res, next) =>{
         req.authError = { error: 'token invalid' }
         req.isValidToken = false
         // console.log('token invalido, next');
-        next()
+        return next()
     } else {   
         // console.log('nao entra se der next');
         req.userId = decoded.id;
         req.isValidToken = true;
         res.cookie('authorization', `Bearer ${token}`)
         // console.log('setou o cookie');
-        next()
+        return next()
     }});
 };

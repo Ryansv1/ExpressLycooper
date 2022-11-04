@@ -7,10 +7,10 @@ module.exports = async(req, res, next) => {
         const sensor3 = await Sensores.findOne({id:3}).sort({horario:-1})
         const sensor4 = await Sensores.findOne({id:4}).sort({horario:-1})
         req.sensores = {sensor1, sensor2, sensor3, sensor4}
-        next()  
+        return next()  
     } catch (error) {
         console.log(error)
         console.log('erro no getsensordata-front');
-        res.json(error)
+        return res.json(error)
     }
 }
