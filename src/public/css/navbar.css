@@ -27,3 +27,7 @@ nav li.nav-item {
 .nav-item a{
     font-size: 1.4rem;
 }
+
+nav li:before{
+    color: black;
+}
