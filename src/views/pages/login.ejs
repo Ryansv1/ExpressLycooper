@@ -8,7 +8,7 @@
     <title><%= title %></title> 
 </head>
 <body class="vw-100 vh-100 d-flex flex-column justify-content-center">
-    <h1 class=" container text-center text-light"><%= title %></h1>
+    <h1 class=" container text-center text-light">Login</h1>
     <div class="container-fluid h-75 d-sm-inline-flex justify-content-center align-items-center overflow-auto">
         <div id="card" class="container-sm h-75 my-3 d-flex flex-column align-items-center justify-content-center text-center">
                 <h1>Ainda não tem uma conta?</h1>
@@ -17,17 +17,18 @@
         </div>
         <div id="card-2"class="container-sm h-75 my-3 d-flex flex-column align-items-center justify-content-center text-center">
                 <h1 class="mb-4">Faça seu Login abaixo!</h1>
-                <form action="/auth/authenticate" method="POST" class="container-sm w-75">
-                    <div class="form-floating mb-3">
+                <form action="/auth/authenticate" method="POST" class="container-sm w-50 mt-4">
+                    <div class="form-floating mb-4">
                         <input type="email" class="form-control bg-dark text-light" id="floatingInput" placeholder="name@example.com" name="email">
                         <label for="floatingInput" style="font-weight: bold;" class="text-light">E-mail</label>
                       </div>
-                      <div class="form-floating">
+                      <div class="form-floating mb-4    ">
                         <input type="password" class="form-control bg-dark text-light" id="floatingPassword" placeholder="Password" name="password">
                         <label for="floatingPassword" style="font-weight: bold;"class="text-light">Senha</label>
                       </div>
                     <button class="btn btn-outline-dark mt-3" type="reset">Limpar dados</button>
                     <button class="btn btn-outline-dark mt-3" type="submit" name="submit">Login</button>
+                    <button class="btn btn-outline-dark mt-3"><a>Esqueceu a Senha?</a></button>
                 </form>
         </div>
     </div>

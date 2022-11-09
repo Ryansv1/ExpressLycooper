@@ -1,23 +1,22 @@
 
 body {
-  background-color: #202020;
+  background-color: #141345;
 }
 
 .container-fluid {
   background: rgb(71, 204, 124);
   background: linear-gradient(to left, rgb(71, 204, 124) 0%, rgba(39,37,148,1) 100%); 
-  box-shadow: 20px 10px 10px;
 }
 
 .container-sm form input {
-  background-color: #202020;
+  background-color: #141345;
   border-radius: 20px;
   box-shadow: 20px;
   color: white;
   font-weight: 800;
 }
 .container-sm form input::after {
-  background-color: #202020;
+  background-color: #141345;
   border-radius: 20px;
   box-shadow: 20px;
   text-align: center;

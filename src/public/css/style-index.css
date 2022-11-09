@@ -1,5 +1,7 @@
 
-
+*{
+    overflow-x: hidden;
+}
 /* Estilização Div main */
 
 #main-container{
