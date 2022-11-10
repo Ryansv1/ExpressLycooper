@@ -5,6 +5,11 @@
     <%- include ('../partials/head.ejs'); %>
     <link href="css/style-login.css" rel="stylesheet">
     <link href="css/reset.css" rel="stylesheet">
+    <script>
+        const redirect = () => {
+            window.location.href = '/forgot'
+        }
+    </script>
     <title><%= title %></title> 
 </head>
 <body class="vw-100 vh-100 d-flex flex-column justify-content-center">
@@ -28,8 +33,8 @@
                       </div>
                     <button class="btn btn-outline-dark mt-3" type="reset">Limpar dados</button>
                     <button class="btn btn-outline-dark mt-3" type="submit" name="submit">Login</button>
-                    <button class="btn btn-outline-dark mt-3"><a>Esqueceu a Senha?</a></button>
                 </form>
+                <button onClick="redirect()"class="btn btn-outline-dark mt-3">Esqueceu a senha?</button>
         </div>
     </div>
 </body>

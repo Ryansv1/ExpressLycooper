@@ -50,4 +50,10 @@ router.post('/authenticate', async (req,res) =>{
         return res.redirect('/')
 });
 
+router.post('/forgot', async (req, res) =>{
+    const { email } = req.body
+    if (!email) return res.redirect('/forgot?err=1')
+    return res.redirect('/redefinir')
+
+})
 module.exports = app => app.use ('/auth', router);

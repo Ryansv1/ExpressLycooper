@@ -40,7 +40,12 @@ app.get('/login', (req, res)=> {
 app.get('/getAllSensorData', getSensorAll, nomeSensor,  (req, res)=>{
     res.render('pages/resultado-consulta', { title: 'Resultado - Lycooper', nomeDoSensor: req.nomeSensor, data: req.query.dataColeta, resultados: req.resultados})
 })
-
+app.get('/forgot', (req,res)=>{
+    res.render('pages/forgot')
+})
+app.get('/redefinir', (req,res)=>{
+    res.render('pages/redefinir')
+})
 // super secreto
 
 app.get('/ricardo', authMiddleware, checkErrorMiddleware, (req,res) =>{
@@ -49,4 +54,4 @@ app.get('/ricardo', authMiddleware, checkErrorMiddleware, (req,res) =>{
 
 
 app.listen(9090);
-console.log('app running on 1818');
+console.log('app running on 9090');
