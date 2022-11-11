@@ -7,15 +7,17 @@
     <link href="css/reset.css" rel="stylesheet">
 </head>
 <body class="vw-100 vh-100 d-flex flex-column justify-content-center">
-    <h1 class=" container text-center text-light">Forgot Pass</h1>
+    <h1 class=" container text-center text-light">Esqueceu a senha?</h1>
     <div class="container-fluid h-75 d-sm-inline-flex justify-content-center align-items-center overflow-auto">
         <div id="card-2"class="container-sm h-75 my-3 d-flex flex-column align-items-center justify-content-center text-center">
-                <h1 class="mb-4">Troque sua senha por aqui!</h1>
-                <form action="/auth/forgot" method="POST" class="container-sm w-50 mt-4">
+                <h1 class="mb-4">Digite o código enviado</h1>
+                <h6 class="text-light">Apenas números</h6>
+                <form action="/senhaForgot" method="get" class="container-sm w-50 mt-4">
                     <div class="form-floating mb-4">
-                        <input type="email" class="form-control bg-dark text-light" id="floatingInput" placeholder="name@example.com" name="email">
-                        <label for="floatingInput" style="font-weight: bold;" class="text-light">E-mail</label>
+                        <input type="text" class="form-control bg-dark text-light" id="floatingInput" placeholder="" name="code">
+                        <label for="floatingInput" style="font-weight: bold;" class="text-light">Código</label>
                       </div>
+                    <input type="hidden" name="params" value="<%= req %>">
                     <button class="btn btn-outline-dark mt-3" type="reset">Limpar dados</button>
                     <button class="btn btn-outline-dark mt-3" type="submit" name="submit">Próximo</button>
                 </form>

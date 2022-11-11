@@ -19,6 +19,9 @@ const checkErrorMiddleware = require('./app/middlewares/checkError');
 const sensorData = require('./app/middlewares/getSensorData')
 const getSensorAll = require('./app/middlewares/getSensorAll');
 const nomeSensor = require('./app/middlewares/nomeSensor');
+const checkEmail = require('./app/middlewares/checkEmail')
+const checkRequest = require('./app/middlewares/checkRequest');
+const checkCode = require('./app/middlewares/checkCode')
 
 // Rotas
 
@@ -40,18 +43,18 @@ app.get('/login', (req, res)=> {
 app.get('/getAllSensorData', getSensorAll, nomeSensor,  (req, res)=>{
     res.render('pages/resultado-consulta', { title: 'Resultado - Lycooper', nomeDoSensor: req.nomeSensor, data: req.query.dataColeta, resultados: req.resultados})
 })
-app.get('/forgot', (req,res)=>{
-    res.render('pages/forgot')
+app.get('/codeForgot', checkRequest, checkEmail, (req, res)=>{
+    const { email } = req.query
+    res.render('pages/codeForgot', { req: email })
 })
-app.get('/redefinir', (req,res)=>{
-    res.render('pages/redefinir')
+app.get('/emailForgot', (req, res) =>{
+    res.render('pages/emailForgot')
 })
-// super secreto
-
-app.get('/ricardo', authMiddleware, checkErrorMiddleware, (req,res) =>{
-    res.render('pages/ricardo', { title:'página secreta'})
+app.get('/senhaForgot', checkCode ,(req,res)=>{
+    console.log(req.query)
+    const { params } = req.query
+    res.render('pages/redefinirSenha', { req: params })
 })
-
 
 app.listen(9090);
 console.log('app running on 9090');

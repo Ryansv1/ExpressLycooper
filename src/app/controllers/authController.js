@@ -3,7 +3,9 @@ const User = require('../../models/user');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
+
 const authConfig = require('../../config/auth.json');
+
 
 const router = express.Router();
 
@@ -50,10 +52,17 @@ router.post('/authenticate', async (req,res) =>{
         return res.redirect('/')
 });
 
-router.post('/forgot', async (req, res) =>{
-    const { email } = req.body
-    if (!email) return res.redirect('/forgot?err=1')
-    return res.redirect('/redefinir')
+router.post('/forgotPass', async (req,res)=>{
+    const { password, params } = req.body
 
+    const hash = await bcrypt.hash(password, 10);
+    try {
+        const user = await User.findOneAndUpdate({email: params}, {password: hash}, {new: true}).select('+password')
+        console.log(user)
+        return res.status(200).send({true: 'ok'})
+    } catch(err){
+        console.log(err)
+    }
 })
+
 module.exports = app => app.use ('/auth', router);
