@@ -14,13 +14,13 @@ router.post('/register', async (req,res) => {
     
     try {
         if(await User.findOne({ email }))
-        return res.status(400).send({ error:'User Already Exists'})
+        return res.redirect('/signin?err=1')
         
         const user = await User.create(req.body);
 
-        User.password = undefined;
+        user.password = undefined;
 
-        return res.redirect('/')
+        return res.redirect('/login?success=1')
 
     } catch (err){
         return res.status(400).send({ error: 'Registration Failed '});
@@ -39,10 +39,10 @@ router.post('/authenticate', async (req,res) =>{
     const user = await User.findOne({ email }).select('+password');
 
     if(!user)
-        return res.status(400).send({ error:'Usuário não encontrado'});
+        return res.redirect('/login?err=1'); //not found user
 
     if(!await bcrypt.compare(password, user.password))
-        return res.status(400).send({ error:'Invalid Password'});
+        return res.redirect('/login?err=2')  //invalid pass
 
         user.password = undefined;
 
@@ -59,7 +59,7 @@ router.post('/forgotPass', async (req,res)=>{
     try {
         const user = await User.findOneAndUpdate({email: params}, {password: hash}, {new: true}).select('+password')
         console.log(user)
-        return res.status(200).send({true: 'ok'})
+        return res.redirect('/login')
     } catch(err){
         console.log(err)
     }

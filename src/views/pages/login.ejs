@@ -9,6 +9,13 @@
         const redirect = () => {
             window.location.href = '/emailForgot'
         }
+        if(window.location.search == '?err=2'){
+            alert("Login inválido")
+        } else if (window.location.search == '?err=1'){
+            alert("Usuário não encontrado")
+        } else if (window.location.search == '?success=1'){
+            alert("Usuário cadastrado com sucesso")
+        }
     </script>
     <title><%= title %></title> 
 </head>
@@ -27,15 +34,17 @@
                         <input type="email" class="form-control bg-dark text-light" id="floatingInput" placeholder="name@example.com" name="email">
                         <label for="floatingInput" style="font-weight: bold;" class="text-light">E-mail</label>
                       </div>
-                      <div class="form-floating mb-4    ">
+                      <div class="form-floating mb-4">
                         <input type="password" class="form-control bg-dark text-light" id="floatingPassword" placeholder="Password" name="password">
                         <label for="floatingPassword" style="font-weight: bold;"class="text-light">Senha</label>
                       </div>
                     <button class="btn btn-outline-dark mt-3" type="reset">Limpar dados</button>
                     <button class="btn btn-outline-dark mt-3" type="submit" name="submit">Login</button>
+                    <button class="btn btn-outline-dark mt-3"><a>Esqueceu a Senha?</a></button>
                 </form>
-                <button onClick="redirect()"class="btn btn-outline-dark mt-3">Esqueceu a senha?</button>
         </div>
     </div>
+    <script>
+    </script>
 </body>
 </html>

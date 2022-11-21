@@ -6,6 +6,11 @@
     <link href="css/style-login.css" rel="stylesheet">
     <link href="css/reset.css" rel="stylesheet">
     <title><%= title %></title>
+    <script>
+      if(window.location.search == '?err=1'){
+        alert("Usuário já cadastrado")
+      }
+    </script>
 </head>
 <body class="vw-100 vh-100 d-flex flex-column justify-content-center">
     <h1 class="container text-center text-light">Cadastre-se</h1>
