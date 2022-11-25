@@ -4,11 +4,12 @@
 #include <DallasTemperature.h>
 #include <ESP8266WiFi.h>  
 
-#define dados 2 
+#define SERVER_IP "192.168.1.102:9090"
+#define dados 3 
 #define pino_sinal_analogico A0
 
-const char* ssid     = "SSID";        
-const char* password = "PASSWORD";  
+const char* ssid     = "Daiana";        
+const char* password = "050320188";  
 
 const int sensor3 = 3;
 const int sensor2 = 2;
@@ -22,58 +23,110 @@ DallasTemperature sensors(&oneWire);
 
 void connectWifi();
 
-void setup(void) { 
-    Serial.begin(9600);
-    connectWifi();
-} 
+void setup(){
+  connectWifi();
+}
 
 void loop (void) {
 
    // capta dados sensor temperatura
    sensors.requestTemperatures();   
    float id_4 = sensors.getTempCByIndex(0);
-
+  
    // capta dados sensor umidade
    id_2 = analogRead(pino_sinal_analogico);
-   
-   // capta dados sensor pH (falta colocar)
 
-   // começa request post na url do sistema
-    Serial.println("posting...");
-    String url = "localhost:9090/api/insert";
-    HTTPClient http;
-    String response;
+    String json4;
+    String json2;
+    String json3;
     
-    StaticJsonDocument<200> doc;  // sensor temperatura
-    String jsonParams;
-    doc["id"] = sensor2;
-    doc["dados"]["valor"] = id_2;
-    serializeJsonPretty(doc, jsonParams);
+    StaticJsonDocument<200> doc4;  // sensor umidade
+    doc4["id"] = sensor4;
+    doc4["dados"]["valor"] = id_4;
+    serializeJsonPretty(doc4, json4);
 
     StaticJsonDocument<200> doc2;  // sensor umidade
-    doc2["id"] = sensor4;
-    doc2["dados"]["valor"] = id_4;
-    serializeJsonPretty(doc2, jsonParams);
-
-    StaticJsonDocument<200> doc3;  // sensor pH
-    doc3["id"] = sensor3;
-    // doc3["dados"]["valor"] = id_3;
-    serializeJsonPretty(doc3, jsonParams);
-
-    http.begin(url);
-    http.addHeader("Content-Type", "application/json");
-    http.POST(jsonParams);
-    response = http.getString();
-    Serial.println(response);
+    doc2["id"] = sensor2;
+    doc2["dados"]["valor"] = id_2;
+    serializeJsonPretty(doc2, json2);
     
-   delay(10000); // 10s de cada request
+ if ((WiFi.status() == WL_CONNECTED)) {
 
+    WiFiClient client;
+    HTTPClient http;
+
+    Serial.print("[HTTP] begin...\n");
+    // configure traged server and url
+    http.begin(client, "http://" SERVER_IP "/api/insert");  // HTTP
+    http.addHeader("Content-Type", "application/json");
+
+    Serial.print("[HTTP] POST...\n");
+    // start connection and send HTTP header and body
+
+    int httpCode2 = http.POST(json2);
+
+    // httpCode will be negative on error
+    if (httpCode2 > 0) {
+      // HTTP header has been send and Server response header has been handled
+      Serial.printf("[HTTP] POST... code: %d\n", httpCode2);
+
+      // file found at server
+      if (httpCode2 == HTTP_CODE_OK) {
+        const String& payload = http.getString();
+        Serial.println("received payload:\n<<");
+        Serial.println(payload);
+        Serial.println(">>");
+      }
+    } else {
+      Serial.printf("[HTTP] POST... failed, error: %s\n", http.errorToString(httpCode2).c_str());
+    }
+
+    http.end();
+ }
+
+  if ((WiFi.status() == WL_CONNECTED)) {
+
+    WiFiClient client;
+    HTTPClient http;
+
+    Serial.print("[HTTP] begin2...\n");
+    // configure traged server and url
+    http.begin(client, "http://" SERVER_IP "/api/insert");  // HTTP
+    http.addHeader("Content-Type", "application/json");
+
+    Serial.print("[HTTP] POST...\n");
+    // start connection and send HTTP header and body
+
+    int httpCode4 = http.POST(json4);
+
+    // httpCode will be negative on error
+    if (httpCode4 > 0) {
+      // HTTP header has been send and Server response header has been handled
+      Serial.printf("[HTTP] POST... code: %d\n", httpCode4);
+
+      // file found at server
+      if (httpCode4 == HTTP_CODE_OK) {
+        const String& payload = http.getString();
+        Serial.println("received payload:\n<<");
+        Serial.println(payload);
+        Serial.println(">>");
+      }
+    } else {
+      Serial.printf("[HTTP] POST... failed, error: %s\n", http.errorToString(httpCode4).c_str());
+    }
+
+    http.end();
+ }
+  delay(10000);
 }
+
+
+
 
 
 void connectWifi(){
   Serial.begin(115200);         // Start the Serial communication to send messages to the computer
-  delay(10);
+  delay(100);
   Serial.println('\n');
   
   WiFi.begin(ssid, password);             // Connect to the network
