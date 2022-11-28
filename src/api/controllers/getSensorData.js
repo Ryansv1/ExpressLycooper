@@ -7,7 +7,6 @@ router.post('/getdata',  async (req, res) => {
     try {
         const data = req.body
         const sensorData = await Sensores.find()
-        // await Sensores.deleteMany({}) // deleta tudo
         return res.json(sensorData)
     } catch (error) {
         return res.json(error)
