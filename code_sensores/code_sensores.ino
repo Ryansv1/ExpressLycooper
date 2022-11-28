@@ -5,7 +5,7 @@
 #include <ESP8266WiFi.h>  
 
 #define SERVER_IP "192.168.1.102:9090"
-#define dados 3 
+const int oneWireBus = 4;
 #define pino_sinal_analogico A0
 
 const char* ssid     = "Daiana";        
@@ -17,14 +17,30 @@ const int sensor4 = 4;
 float id_2;
 
 // execução das biblitecas
-OneWire oneWire(dados);
-DallasTemperature sensors(&oneWire); 
+OneWire oneWire(oneWireBus);
+DallasTemperature sensors(&oneWire);  
 
-
-void connectWifi();
 
 void setup(){
-  connectWifi();
+  Serial.begin(115200);         // Start the Serial communication to send messages to the computer
+  delay(100);
+  Serial.println('\n');
+  
+  WiFi.begin(ssid, password);             // Connect to the network
+  Serial.print("Connecting to ");
+  Serial.print(ssid); Serial.println(" ...");
+
+  int i = 0;
+  while (WiFi.status() != WL_CONNECTED) { 
+    delay(1000);
+    Serial.print(++i); Serial.print(' ');
+  }
+
+  Serial.println('\n');
+  Serial.println("Connection established!");  
+  Serial.print("IP address:\t");
+  Serial.println(WiFi.localIP());
+  sensors.begin();
 }
 
 void loop (void) {
@@ -38,7 +54,6 @@ void loop (void) {
 
     String json4;
     String json2;
-    String json3;
     
     StaticJsonDocument<200> doc4;  // sensor umidade
     doc4["id"] = sensor4;
@@ -89,7 +104,7 @@ void loop (void) {
     WiFiClient client;
     HTTPClient http;
 
-    Serial.print("[HTTP] begin2...\n");
+    Serial.print("[HTTP] begin second request...\n");
     // configure traged server and url
     http.begin(client, "http://" SERVER_IP "/api/insert");  // HTTP
     http.addHeader("Content-Type", "application/json");
@@ -117,30 +132,5 @@ void loop (void) {
 
     http.end();
  }
-  delay(10000);
-}
-
-
-
-
-
-void connectWifi(){
-  Serial.begin(115200);         // Start the Serial communication to send messages to the computer
-  delay(100);
-  Serial.println('\n');
-  
-  WiFi.begin(ssid, password);             // Connect to the network
-  Serial.print("Connecting to ");
-  Serial.print(ssid); Serial.println(" ...");
-
-  int i = 0;
-  while (WiFi.status() != WL_CONNECTED) { 
-    delay(1000);
-    Serial.print(++i); Serial.print(' ');
-  }
-
-  Serial.println('\n');
-  Serial.println("Connection established!");  
-  Serial.print("IP address:\t");
-  Serial.println(WiFi.localIP());
+  delay(15000);
 }
