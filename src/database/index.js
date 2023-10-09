@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb+srv://mydb_ifc:123@cluster0.hvyyhts.mongodb.net/').then(
+mongoose.connect('coloque o link do db aqui').then(
     ()=> console.log('mongodb connected')
 ).catch(err => (console.log(err)));
 mongoose.Promise = global.Promise;
