@@ -56,5 +56,6 @@ app.get('/senhaForgot', checkCode ,(req,res)=>{
     res.render('pages/redefinirSenha', { req: params })
 })
 
-app.listen(9090);
-console.log('app running on 9090');
+app.listen(process.env.PORT, () =>{
+    console.log('App Running on port ', process.env.PORT)
+});
